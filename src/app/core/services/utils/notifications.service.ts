@@ -143,7 +143,7 @@ export class NotificationsService {
 
 	// Mostrar notificación de bienvenida
 	async showWelcome(name): Promise<string> {
-		this.success('global.welcome', { name });
+		this.success('Bienvenido', { name });
 
 		return new Promise((resolve) => {
 			let timeout;

@@ -1,3 +1,4 @@
+import { AccountService } from '@services/utils/account.service';
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { UtilsService } from '@services/utils/utils.service';
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
 	constructor(
 		private formBuilder: UntypedFormBuilder,
     private utilsService: UtilsService,
+    private accountService: AccountService
 	) {
 		this.buildForm();
 	}
@@ -41,16 +43,21 @@ export class LoginComponent implements OnInit {
 		}
 
 		this.loading = true;
-    /* BACKEND */
-    this.utilsService.setLogin({
-      usuarioID: 1,
-      nombre: 'William',
-      apellido: 'Garcia',
-      userName: this.usernameField.toString(),
-      email: 'wgarcia@umg.com'
-    });
 
-    window.location.reload();
+    this.accountService.login(this.usernameField.value, this.passwordField.value).then((result) => {
+      if (result){
+        this.utilsService.setLogin({
+          usuarioID: result.usuarioID,
+          nombre: result.nombre,
+          apellido: result.apellido,
+          userName: this.usernameField.toString(),
+          email: result.email
+        });
+        window.location.reload();
+      }
+    });
+		this.loading = false;
+
 	}
 
 	get usernameField() {

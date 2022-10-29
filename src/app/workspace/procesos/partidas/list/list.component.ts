@@ -32,7 +32,6 @@ export class ListComponent implements OnInit {
 
 	ngOnInit() {
 		this.getData();
-    this.notificationsService.errorCatched('error')
 	}
 
   async getData(){

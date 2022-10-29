@@ -40,7 +40,7 @@ export class FormComponent implements OnInit {
 	listMonedas: string[];
 
 	dataSource: MatTableDataSource<PartidaDetalle> = new MatTableDataSource<PartidaDetalle>();
-	columns: string[] = ['cuenta', 'centroCosto', 'monto', 'debe', 'haber', 'actions'];
+	columns: string[] = ['cuenta', 'centroCosto', 'monto', 'debe', 'haber'];
 
 	constructor(
 		private notificationsService: NotificationsService,
@@ -161,7 +161,7 @@ export class FormComponent implements OnInit {
 		}
 	}
 
-	async delete(value: Proveedor) {
+	async delete(value: PartidaDetalle) {
 		const dialogRef = this.dialog.open(ConfirmDialogComponent, {
 			width: '95%',
 			maxWidth: '500px',
@@ -173,6 +173,8 @@ export class FormComponent implements OnInit {
 		});
 		dialogRef.afterClosed().subscribe(async (result) => {
 			if (result) {
+        console.log(value);
+        this.dataSource.data = this.partidaDetalle;
 			}
 		});
 	}
