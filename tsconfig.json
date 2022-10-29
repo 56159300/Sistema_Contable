@@ -1,0 +1,40 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"baseUrl": "./",
+		"outDir": "./dist/out-tsc",
+		"sourceMap": true,
+		"declaration": false,
+		"downlevelIteration": true,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
+		"moduleResolution": "node",
+		"importHelpers": true,
+		"module": "esnext",
+		"target": "es2020",
+		"typeRoots": ["node_modules/@types"],
+		"lib": ["es2018", "es2015", "dom"],
+		"paths": {
+			"@environments/*": ["src/environments/*"],
+			"@settings/*": ["src/settings/*"],
+			"@styles/*": ["src/styles/*"],
+			"@models/*": ["src/app/core/models/*"],
+			"@guards/*": ["src/app/core/guards/*"],
+			"@interceptors/*": ["src/app/core/interceptors/*"],
+			"@providers/*": ["src/app/core/providers/*"],
+			"@services/*": ["src/app/core/services/*"],
+			"@layouts/*": ["src/app/layouts/*"],
+			"@session/*": ["src/app/session/*"],
+			"@shared/*": ["src/app/shared/*"],
+			"@training/*": ["src/app/training/*"],
+			"@workspace/*": ["src/app/workspace/*"],
+      "@material/*": ["src/app/material/*"],
+		}
+	},
+	"angularCompilerOptions": {
+		"fullTemplateTypeCheck": true,
+		"strictInjectionParameters": true,
+		"enableIvy": true
+	}
+}

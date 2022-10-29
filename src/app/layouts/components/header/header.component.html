@@ -1,0 +1,32 @@
+<mat-toolbar class="header-nav" (scroll)="onscroll()" [ngClass]="navbarFixed ? 'fixed' : 'nofixed'">
+	<a href="./" class="logo">
+		<img src="assets/img/logo.svg" alt="logo" class="img-logo-sm" loading="lazy" />
+	</a>
+	<span class="spacer"></span>
+
+
+	<button
+		mat-button
+		[matMenuTriggerFor]="profileDropdown"
+		class="w-auto rounded-8"
+		style="padding: 0px 0px 0px 15px !important"
+    *ngIf="login"
+	>
+		<img
+			[src]="imageUrl"
+			alt=""
+			height="34"
+			width="34"
+			loading="lazy"
+			class="border-circular bdr-black1"
+			*ngIf="imageUrl"
+		/>
+		<span *ngIf="(isPhone$ | async) === false" class="ml-1">{{ name }}</span>
+		<mat-icon>keyboard_arrow_down</mat-icon>
+	</button>
+	<mat-menu #profileDropdown="matMenu" xPosition="before">
+		<button mat-menu-item (click)="logout()">
+      <span>Cerrar session</span>
+		</button>
+	</mat-menu>
+</mat-toolbar>

@@ -1,0 +1,534 @@
+// Colores
+$white: #ffffff;
+$black1: #e3e8eb;
+$black2: #aeb7bd;
+$black3: #6a7680;
+$black4: #2c2e30;
+$black: #000000;
+$purple1: #dbcdf4;
+$purple2: #ae8de5;
+$purple3: #804dd7;
+$purple4: #51249e;
+$purple5: #371374;
+$blue0: #eff3fb;
+$blue1: #d2ddfd;
+$blue2: #87a3fa;
+$blue3: #164df5;
+$blue4: #0832b5;
+$blue5: #0f287f;
+$blue6: #001a6d;
+$skyblue1: #bdf1ff;
+$skyblue2: #5bdcff;
+$skyblue3: #00b4;
+$skyblue4: #007be4;
+$green1: #c6efe7;
+$green2: #00d3ae;
+$green3: #00987e;
+$green4: #005d4d;
+$yellow1: #fff1be;
+$yellow2: #ffe16f;
+$yellow3: #ffcc0d;
+$yellow4: #ffaa01;
+$orange1: #ffd8b2;
+$orange2: #ffb163;
+$orange3: #ff8001;
+$orange4: #ff5601;
+$red1: #f9bbbc;
+$red2: #f37276;
+$red3: #ed2a2f;
+$red4: #cb1116;
+$pink1: #ffd1e8;
+$pink2: #ff96c9;
+$pink3: #ff48a1;
+$pink4: #e5006f;
+
+// Colores de textos
+.txt-white {
+	color: white !important;
+}
+
+.txt-black {
+	color: $black !important;
+}
+
+.txt-black1 {
+	color: $black1 !important;
+}
+
+.txt-black2 {
+	color: $black2 !important;
+}
+
+.txt-black3 {
+	color: $black3 !important;
+}
+
+.txt-black4 {
+	color: $black4 !important;
+}
+
+.txt-purple1 {
+	color: $purple1 !important;
+}
+
+.txt-purple2 {
+	color: $purple2 !important;
+}
+
+.txt-purple3 {
+	color: $purple3 !important;
+}
+
+.txt-purple4 {
+	color: $purple4 !important;
+}
+
+.txt-purple5 {
+	color: $purple5 !important;
+}
+
+.txt-blue1 {
+	color: $blue1 !important;
+}
+
+.txt-blue2 {
+	color: $blue2 !important;
+}
+
+.txt-blue3 {
+	color: $blue3 !important;
+}
+
+.txt-blue4 {
+	color: $blue4 !important;
+}
+
+.txt-blue5 {
+	color: $blue5 !important;
+}
+
+.txt-blue6 {
+	color: $blue6 !important;
+}
+
+.txt-skyblue1 {
+	color: $skyblue1 !important;
+}
+
+.txt-skyblue2 {
+	color: $skyblue2 !important;
+}
+
+.txt-skyblue3 {
+	color: $skyblue3 !important;
+}
+
+.txt-skyblue4 {
+	color: $skyblue4 !important;
+}
+
+.txt-green1 {
+	color: $green1 !important;
+}
+
+.txt-green2 {
+	color: $green2 !important;
+}
+
+.txt-green3 {
+	color: $green3 !important;
+}
+
+.txt-green4 {
+	color: $green4 !important;
+}
+
+.txt-yellow1 {
+	color: $yellow1 !important;
+}
+
+.txt-yellow2 {
+	color: $yellow2 !important;
+}
+
+.txt-yellow3 {
+	color: $yellow3 !important;
+}
+
+.txt-yellow4 {
+	color: $yellow4 !important;
+}
+
+.txt-orange1 {
+	color: $orange1 !important;
+}
+
+.txt-orange2 {
+	color: $orange2 !important;
+}
+
+.txt-orange3 {
+	color: $orange3 !important;
+}
+
+.txt-orange4 {
+	color: $orange4 !important;
+}
+
+.txt-red1 {
+	color: $red1 !important;
+}
+
+.txt-red2 {
+	color: $red2 !important;
+}
+
+.txt-red3 {
+	color: $red3 !important;
+}
+
+.txt-red4 {
+	color: $red4 !important;
+}
+
+.txt-pink1 {
+	color: $pink1 !important;
+}
+
+.txt-pink2 {
+	color: $pink2 !important;
+}
+
+.txt-pink3 {
+	color: $pink3 !important;
+}
+
+.txt-pink4 {
+	color: $pink4 !important;
+}
+
+// Colores de fondos
+.bg-white {
+	background-color: $white !important;
+}
+
+.bg-black {
+	background-color: $black !important;
+}
+
+.bg-black1 {
+	background-color: $black1 !important;
+}
+
+.bg-black2 {
+	background-color: $black2 !important;
+}
+
+.bg-black3 {
+	background-color: $black3 !important;
+}
+
+.bg-black4 {
+	background-color: $black4 !important;
+}
+
+.bg-purple1 {
+	background-color: $purple1 !important;
+}
+
+.bg-purple2 {
+	background-color: $purple2 !important;
+}
+
+.bg-purple3 {
+	background-color: $purple3 !important;
+}
+
+.bg-purple4 {
+	background-color: $purple4 !important;
+}
+
+.bg-purple5 {
+	background-color: $purple5 !important;
+}
+
+.bg-blue0 {
+	background-color: $blue0 !important;
+}
+
+.bg-blue1 {
+	background-color: $blue1 !important;
+}
+
+.bg-blue2 {
+	background-color: $blue2 !important;
+}
+
+.bg-blue3 {
+	background-color: $blue3 !important;
+}
+
+.bg-blue4 {
+	background-color: $blue4 !important;
+}
+
+.bg-blue5 {
+	background-color: $blue5 !important;
+}
+
+.bg-skyblue1 {
+	background-color: $skyblue1 !important;
+}
+
+.bg-skyblue2 {
+	background-color: $skyblue2 !important;
+}
+
+.bg-skyblue3 {
+	background-color: $skyblue3 !important;
+}
+
+.bg-skyblue4 {
+	background-color: $skyblue4 !important;
+}
+
+.bg-green1 {
+	background-color: $green1 !important;
+}
+
+.bg-green2 {
+	background-color: $green2 !important;
+}
+
+.bg-green3 {
+	background-color: $green3 !important;
+}
+
+.bg-green4 {
+	background-color: $green4 !important;
+}
+
+.bg-yellow1 {
+	background-color: $yellow1 !important;
+}
+
+.bg-yellow2 {
+	background-color: $yellow2 !important;
+}
+
+.bg-yellow3 {
+	background-color: $yellow3 !important;
+}
+
+.bg-yellow4 {
+	background-color: $yellow4 !important;
+}
+
+.bg-orange1 {
+	background-color: $orange1 !important;
+}
+
+.bg-orange2 {
+	background-color: $orange2 !important;
+}
+
+.bg-orange3 {
+	background-color: $orange3 !important;
+}
+
+.bg-orange4 {
+	background-color: $orange4 !important;
+}
+
+.bg-red1 {
+	background-color: $red1 !important;
+}
+
+.bg-red2 {
+	background-color: $red2 !important;
+}
+
+.bg-red3 {
+	background-color: $red3 !important;
+}
+
+.bg-red4 {
+	background-color: $red4 !important;
+}
+
+.bg-pink1 {
+	background-color: $pink1 !important;
+}
+
+.bg-pink2 {
+	background-color: $pink2 !important;
+}
+
+.bg-pink3 {
+	background-color: $pink3 !important;
+}
+
+.bg-pink4 {
+	background-color: $pink4 !important;
+}
+
+// Colores de bordes
+.bdr-white {
+	border: solid 1.5px white !important;
+}
+
+.bdr-black {
+	border: solid 1.5px $black !important;
+}
+
+.bdr-black1 {
+	border: solid 1.5px $black1 !important;
+}
+
+.bdr-black2 {
+	border: solid 1.5px $black2 !important;
+}
+
+.bdr-black3 {
+	border: solid 1.5px $black3 !important;
+}
+
+.bdr-black4 {
+	border: solid 1.5px $black4 !important;
+}
+
+.bdr-purple1 {
+	border: solid 1.5px $purple1 !important;
+}
+
+.bdr-purple2 {
+	border: solid 1.5px $purple2 !important;
+}
+
+.bdr-purple3 {
+	border: solid 1.5px $purple3 !important;
+}
+
+.bdr-purple4 {
+	border: solid 1.5px $purple4 !important;
+}
+
+.bdr-purple5 {
+	border: solid 1.5px $purple5 !important;
+}
+
+.bdr-blue1 {
+	border: solid 1.5px $blue1 !important;
+}
+
+.bdr-blue2 {
+	border: solid 1.5px $blue2 !important;
+}
+
+.bdr-blue3 {
+	border: solid 1.5px $blue3 !important;
+}
+
+.bdr-blue4 {
+	border: solid 1.5px $blue4 !important;
+}
+
+.bdr-blue5 {
+	border: solid 1.5px $blue5 !important;
+}
+
+.bdr-skyblue1 {
+	border: solid 1.5px $skyblue1 !important;
+}
+
+.bdr-skyblue2 {
+	border: solid 1.5px $skyblue2 !important;
+}
+
+.bdr-skyblue3 {
+	border: solid 1.5px $skyblue3 !important;
+}
+
+.bdr-skyblue4 {
+	border: solid 1.5px $skyblue4 !important;
+}
+
+.bdr-green1 {
+	border: solid 1.5px $green1 !important;
+}
+
+.bdr-green2 {
+	border: solid 1.5px $green2 !important;
+}
+
+.bdr-green3 {
+	border: solid 1.5px $green3 !important;
+}
+
+.bdr-green4 {
+	border: solid 1.5px $green4 !important;
+}
+
+.bdr-yellow1 {
+	border: solid 1.5px $yellow1 !important;
+}
+
+.bdr-yellow2 {
+	border: solid 1.5px $yellow2 !important;
+}
+
+.bdr-yellow3 {
+	border: solid 1.5px $yellow3 !important;
+}
+
+.bdr-yellow4 {
+	border: solid 1.5px $yellow4 !important;
+}
+
+.bdr-orange1 {
+	border: solid 1.5px $orange1 !important;
+}
+
+.bdr-orange2 {
+	border: solid 1.5px $orange2 !important;
+}
+
+.bdr-orange3 {
+	border: solid 1.5px $orange3 !important;
+}
+
+.bdr-orange4 {
+	border: solid 1.5px $orange4 !important;
+}
+
+.bdr-red1 {
+	border: solid 1.5px $red1 !important;
+}
+
+.bdr-red2 {
+	border: solid 1.5px $red2 !important;
+}
+
+.bdr-red3 {
+	border: solid 1.5px $red3 !important;
+}
+
+.bdr-red4 {
+	border: solid 1.5px $red4 !important;
+}
+
+.bdr-pink1 {
+	border: solid 1.5px $pink1 !important;
+}
+
+.bdr-pink2 {
+	border: solid 1.5px $pink2 !important;
+}
+
+.bdr-pink3 {
+	border: solid 1.5px $pink3 !important;
+}
+
+.bdr-pink4 {
+	border: solid 1.5px $pink4 !important;
+}

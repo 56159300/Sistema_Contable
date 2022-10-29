@@ -1,0 +1,17 @@
+[
+  {
+    "clienteID": 1,
+    "codigo": "WG",
+    "nombre": "William Garcia",
+    "direccion": "Guatemala",
+    "nit": "8048822-6",
+    "cuentaID": 4,
+    "cuentaContable": {
+      "cuentaID": 4,
+      "empresaID": 1,
+      "padreCuentaID": 1,
+      "codigo": "1.1",
+      "nombre": "Caja"
+    }
+  }
+]

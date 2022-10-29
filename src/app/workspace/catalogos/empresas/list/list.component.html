@@ -1,0 +1,93 @@
+<div class="container-fluid">
+	<div class="d-flex flex-wrap justify-content-between">
+		<div class="d-flex align-items-center txt-blue2 mb-4">
+			<span class="title"> Empresas </span>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-10">
+			<app-search-bar [dataSource]="dataSource"></app-search-bar>
+		</div>
+		<div class="col-md-2 d-flex justify-content-end">
+			<button mat-raised-button class="bg-blue3 txt-white squared-button w-auto" (click)="new()">Crear nuevo</button>
+		</div>
+	</div>
+	<app-circular-loading [loading]="loading"></app-circular-loading>
+	<div class="row" [hidden]="loading">
+		<div class="col-sm-12">
+			<mat-card>
+				<mat-card-content>
+					<div>
+						<div class="table-container">
+							<table
+								mat-table
+								[dataSource]="dataSource"
+								class="table-responsive-sm table-hover"
+								matSort
+								matSortActive="key"
+								matSortDirection="asc"
+								appTableQuery
+							>
+								<ng-container matColumnDef="empresaID">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+									<td mat-cell *matCellDef="let element">
+										{{ element.empresaID }}
+									</td>
+								</ng-container>
+								<ng-container matColumnDef="codigo">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header>Codigo</th>
+									<td mat-cell *matCellDef="let element">
+										{{ element.codigo }}
+									</td>
+								</ng-container>
+								<ng-container matColumnDef="nombre">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+									<td mat-cell *matCellDef="let element">
+										{{ element.nombre }}
+									</td>
+								</ng-container>
+								<ng-container matColumnDef="direccion">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header>Direccion</th>
+									<td mat-cell *matCellDef="let element">
+										{{ element.direccion }}
+									</td>
+								</ng-container>
+								<ng-container matColumnDef="nit">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header>NIT</th>
+									<td mat-cell *matCellDef="let element">
+										{{ element.nit }}
+									</td>
+								</ng-container>
+								<ng-container matColumnDef="actions">
+									<th mat-header-cell *matHeaderCellDef class="text-center">Acciones</th>
+									<td mat-cell *matCellDef="let element" class="text-center">
+										<div class="d-flex justify-content-center">
+											<button mat-icon-button [matMenuTriggerFor]="menu">
+												<mat-icon>more_vert</mat-icon>
+											</button>
+											<mat-menu #menu="matMenu">
+												<button mat-menu-item (click)="edit(element)">Editar</button>
+												<mat-divider></mat-divider>
+												<button mat-menu-item class="txt-red3" (click)="delete(element)">
+													Eliminar
+												</button>
+											</mat-menu>
+										</div>
+									</td>
+								</ng-container>
+								<tr mat-header-row *matHeaderRowDef="columns"></tr>
+								<tr mat-row *matRowDef="let row; columns: columns"></tr>
+							</table>
+						</div>
+						<div
+							class="d-flex flex-column-reverse flex-md-row align-items-center justify-content-between"
+						>
+							<mat-paginator [pageSizeOptions]="[25, 50, 100]" showFirstLastButtons></mat-paginator>
+						</div>
+					</div>
+				</mat-card-content>
+			</mat-card>
+		</div>
+	</div>
+</div>

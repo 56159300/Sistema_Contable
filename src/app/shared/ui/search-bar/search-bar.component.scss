@@ -1,0 +1,5 @@
+@import '../../../../styles/colors.scss';
+
+::ng-deep.searchInput .mat-form-field-underline {
+	background-color: $blue1 !important;
+}

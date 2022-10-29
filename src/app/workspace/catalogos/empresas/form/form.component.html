@@ -1,0 +1,115 @@
+<div class="container-fluid">
+	<div class="d-flex flex-wrap justify-content-between">
+		<div class="d-flex align-items-center txt-blue2 mb-4">
+			<span class="title"> Empresas </span>
+		</div>
+	</div>
+	<app-circular-loading [loading]="loading"></app-circular-loading>
+	<div class="row" [hidden]="loading">
+		<div class="col-sm-12">
+			<form [formGroup]="form" form="form" (ngSubmit)="create($event)">
+				<mat-card>
+					<mat-card-header>
+						<mat-card-title>
+							<span class="subheader">{{
+								baseKey === 'nuevo' ? 'Nueva Empresa' : 'Editar Empresa'
+							}}</span>
+						</mat-card-title>
+					</mat-card-header>
+					<mat-card-content>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<mat-form-field appearance="outline">
+										<mat-label> Codigo </mat-label>
+										<input
+											appTrim
+											[formControl]="codigoField"
+											matInput
+											type="text"
+											formControlName="codigo"
+											minlength="1"
+											maxlength="25"
+										/>
+										<mat-error *ngIf="codigoField.errors">{{
+											codigoField | formErrorHandler
+										}}</mat-error>
+										<mat-hint align="end">{{ codigoField.value?.length }} / 25</mat-hint>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="form-group">
+									<mat-form-field appearance="outline">
+										<mat-label> Nombre </mat-label>
+										<input
+											appTrim
+											[formControl]="nombreField"
+											matInput
+											type="text"
+											formControlName="nombre"
+											minlength="1"
+											maxlength="50"
+										/>
+										<mat-error *ngIf="nombreField.errors">{{
+											nombreField | formErrorHandler
+										}}</mat-error>
+										<mat-hint align="end">{{ nombreField.value?.length }} / 50</mat-hint>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="form-group">
+									<mat-form-field appearance="outline">
+										<mat-label> Direccion </mat-label>
+										<input
+											appTrim
+											[formControl]="direccionField"
+											matInput
+											type="text"
+											formControlName="direccion"
+											minlength="1"
+											maxlength="100"
+										/>
+										<mat-error *ngIf="direccionField.errors">{{
+											direccionField | formErrorHandler
+										}}</mat-error>
+										<mat-hint align="end">{{ direccionField.value?.length }} / 100</mat-hint>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="form-group">
+									<mat-form-field appearance="outline">
+										<mat-label> NIT </mat-label>
+										<input
+											appTrim
+											[formControl]="nitField"
+											matInput
+											type="text"
+											formControlName="nit"
+											minlength="1"
+											maxlength="15"
+										/>
+										<mat-error *ngIf="nitField.errors">{{ nitField | formErrorHandler }}</mat-error>
+										<mat-hint align="end">{{ nitField.value?.length }} / 15</mat-hint>
+									</mat-form-field>
+								</div>
+							</div>
+						</div>
+					</mat-card-content>
+					<mat-card-actions class="form-group" style="text-align: right !important">
+						<a mat-button [routerLink]="['/workspace/catalogos/empresas']" class="w-auto"> Cancelar </a>
+						<button
+							mat-raised-button
+							type="submit"
+							class="bg-blue3 txt-white squared-button w-auto"
+						>
+							Guardar
+						</button>
+					</mat-card-actions>
+				</mat-card>
+			</form>
+		</div>
+	</div>
+</div>

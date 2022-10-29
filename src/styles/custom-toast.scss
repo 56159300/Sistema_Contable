@@ -1,0 +1,55 @@
+@import 'colors';
+
+.toast-top-center,
+.toast-top-left,
+.toast-top-right,
+.toast-top-full-width {
+	top: 30px;
+	margin-top: 70px;
+}
+
+.toast-bottom-center,
+.toast-bottom-left,
+.toast-bottom-right,
+.toast-bottom-full-width {
+	bottom: 30px;
+	margin-bottom: 0px;
+}
+
+.toast-top-left,
+.toast-bottom-left {
+	left: 30px;
+}
+
+.toast-top-right,
+.toast-bottom-right {
+	right: 30px;
+}
+
+.toast-container .ngx-toastr,
+.toast-container .ngx-toastr:hover {
+	box-shadow: none !important;
+	border-radius: 8px !important;
+}
+
+.toast-close-button:hover {
+	color: white !important;
+}
+
+.toast-error {
+	background-color: $red3 !important;
+}
+
+.toast-success {
+	background-color: $green3 !important;
+}
+
+.toast-container,
+.ngx-toastr {
+	@media (max-width: 768px) {
+		left: 7.5px !important;
+		right: 7.5px !important;
+		top: 7.5px !important;
+		width: calc(100% - 15px) !important;
+	}
+}

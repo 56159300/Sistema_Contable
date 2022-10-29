@@ -1,0 +1,109 @@
+<div class="container-fluid">
+	<div class="d-flex flex-wrap justify-content-between">
+		<div class="d-flex align-items-center txt-blue2 mb-4">
+			<span class="title"> Cuentas Contables </span>
+		</div>
+	</div>
+	<app-circular-loading [loading]="loading"></app-circular-loading>
+	<div class="row" [hidden]="loading">
+		<div class="col-sm-12">
+			<form [formGroup]="form" form="form" (ngSubmit)="create($event)">
+				<mat-card>
+					<mat-card-header>
+						<mat-card-title>
+							<span class="subheader">{{
+								baseKey === 'nuevo' ? 'Nueva Cuentas Contables' : 'Editar Cuentas Contables'
+							}}</span>
+						</mat-card-title>
+					</mat-card-header>
+					<mat-card-content>
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group">
+									<mat-form-field appearance="outline">
+										<mat-label> Cuenta Padre </mat-label>
+										<mat-select formControlName="padreCuentaID">
+											<mat-option [value]="cuenta.cuentaID" *ngFor="let cuenta of listCuentas">
+												{{ cuenta.codigo }}. {{ cuenta.nombre }}
+											</mat-option>
+										</mat-select>
+										<mat-error *ngIf="padreCuentaIDField.errors">
+											{{ padreCuentaIDField | formErrorHandler }}
+										</mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="form-group">
+									<mat-form-field appearance="outline">
+										<mat-label> Codigo </mat-label>
+										<input
+											appTrim
+											[formControl]="codigoField"
+											matInput
+											type="text"
+											formControlName="codigo"
+											minlength="1"
+											maxlength="20"
+										/>
+										<mat-error *ngIf="codigoField.errors">{{
+											codigoField | formErrorHandler
+										}}</mat-error>
+										<mat-hint align="end">{{ codigoField.value?.length }} / 2</mat-hint>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="form-group">
+									<mat-form-field appearance="outline">
+										<mat-label> Nombre </mat-label>
+										<input
+											appTrim
+											[formControl]="nombreField"
+											matInput
+											type="text"
+											formControlName="nombre"
+											minlength="1"
+											maxlength="20"
+										/>
+										<mat-error *ngIf="nombreField.errors">
+											{{ nombreField | formErrorHandler }}
+										</mat-error>
+										<mat-hint align="end">{{ nombreField.value?.length }} / 20</mat-hint>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="col-sm-12">
+								<div class="form-group">
+									<mat-form-field appearance="outline">
+										<mat-label> Empresa </mat-label>
+										<mat-select formControlName="empresaID" required>
+											<mat-option [value]="empresa.empresaID" *ngFor="let empresa of listEmpresas">
+												{{ empresa.nombre }}
+											</mat-option>
+										</mat-select>
+										<mat-error *ngIf="empresaIDField.errors">
+											{{ empresaIDField | formErrorHandler }}
+										</mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+						</div>
+					</mat-card-content>
+					<mat-card-actions class="form-group" style="text-align: right !important">
+						<a mat-button [routerLink]="['/workspace/catalogos/centros']" class="w-auto">
+							Cancelar
+						</a>
+						<button
+							mat-raised-button
+							type="submit"
+							class="bg-blue3 txt-white squared-button w-auto"
+						>
+							Guardar
+						</button>
+					</mat-card-actions>
+				</mat-card>
+			</form>
+		</div>
+	</div>
+</div>

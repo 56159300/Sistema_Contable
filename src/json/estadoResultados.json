@@ -1,0 +1,22 @@
+[
+  {
+    "signo": "+",
+    "descripcion": "Ventas",
+    "monto": 20000
+  },
+  {
+    "signo": "-",
+    "descripcion": "Devoluciones en ventas",
+    "monto": 1000
+  },
+  {
+    "signo": "-",
+    "descripcion": "Descuentos en ventas",
+    "monto": 1000
+  },
+  {
+    "signo": "=",
+    "descripcion": "Ingresos",
+    "monto": 18000
+  }
+]

@@ -1,0 +1,32 @@
+// Tour Steps
+::ng-deep .cdk-overlay-connected-position-bounding-box .cdk-overlay-pane .tour-step {
+	margin-top: 10px !important;
+	margin-bottom: 10px !important;
+
+	.mat-card {
+		margin: 0px !important;
+	}
+
+	.mat-button {
+		border-radius: 8px !important;
+		color: #164df5;
+		justify-content: center;
+		align-items: center;
+		width: -webkit-fill-available;
+		height: 45px;
+		border-radius: 12px !important;
+		width: auto;
+	}
+
+	.mat-button-disabled {
+		visibility: hidden;
+	}
+
+	.close {
+		color: black !important;
+	}
+}
+
+::ng-deep .touranchor--is-active {
+	background-color: rgba(0, 0, 0, 0.7);
+}

@@ -1,0 +1,75 @@
+<div class="container-fluid">
+	<div class="d-flex flex-wrap justify-content-between">
+		<div class="d-flex align-items-center txt-blue2 mb-4">
+			<span class="title"> Diario Mayor </span>
+		</div>
+	</div>
+	<app-circular-loading [loading]="loading"></app-circular-loading>
+	<div class="row" [hidden]="loading">
+		<div class="col-sm-12">
+			<mat-card>
+        <mat-card-header class="d-flex justify-content-end">
+          <button mat-raised-button color="primary" (click)="imprimir()">Imprimir</button>
+        </mat-card-header>
+				<mat-card-content>
+					<div>
+						<div class="table-container">
+							<table
+								mat-table
+								[dataSource]="dataSource"
+								class="table-responsive-sm table-hover"
+								matSort
+								matSortActive="key"
+								matSortDirection="asc"
+								appTableQuery
+							>
+								<ng-container matColumnDef="fecha">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha</th>
+									<td mat-cell *matCellDef="let element">
+										{{ element.fecha }}
+									</td>
+                  <td mat-footer-cell *matFooterCellDef class="font-weight-bolder"></td>
+								</ng-container>
+								<ng-container matColumnDef="codigo">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header>Codigo</th>
+									<td mat-cell *matCellDef="let element">
+										{{ element.codigo }}
+									</td>
+                  <td mat-footer-cell *matFooterCellDef class="font-weight-bolder"></td>
+								</ng-container>
+								<ng-container matColumnDef="descripcion">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion</th>
+									<td mat-cell *matCellDef="let element">
+										{{ element.descripcion }}
+									</td>
+									<td mat-footer-cell *matFooterCellDef class="font-weight-bolder">Total</td>
+								</ng-container>
+								<ng-container matColumnDef="debe">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header>Debe</th>
+									<td mat-cell *matCellDef="let element">
+										{{ element.debe }}
+									</td>
+									<td mat-footer-cell *matFooterCellDef class="font-weight-bolder">
+										{{ getTotalDebe() }}
+									</td>
+								</ng-container>
+								<ng-container matColumnDef="haber">
+									<th mat-header-cell *matHeaderCellDef mat-sort-header>Haber</th>
+									<td mat-cell *matCellDef="let element">
+										{{ element.haber }}
+									</td>
+									<td mat-footer-cell *matFooterCellDef class="font-weight-bolder">
+										{{ getTotalHaber() }}
+									</td>
+								</ng-container>
+								<tr mat-header-row *matHeaderRowDef="columns"></tr>
+								<tr mat-row *matRowDef="let row; columns: columns"></tr>
+								<tr mat-footer-row *matFooterRowDef="columns"></tr>
+							</table>
+						</div>
+					</div>
+				</mat-card-content>
+			</mat-card>
+		</div>
+	</div>
+</div>

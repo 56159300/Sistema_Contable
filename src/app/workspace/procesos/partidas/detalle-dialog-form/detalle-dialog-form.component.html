@@ -1,0 +1,75 @@
+<div class="row-cols-1 text-center">
+	<form [formGroup]="form" form="form">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="form-group">
+          <mat-form-field appearance="outline">
+            <mat-label> Cuenta </mat-label>
+            <mat-select formControlName="cuentaID">
+              <mat-option [value]="cuenta.cuentaID" *ngFor="let cuenta of listCuentas">
+                {{ cuenta.codigo }}. {{ cuenta.nombre }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="cuentaIDField.errors">
+              {{ cuentaIDField | formErrorHandler }}
+            </mat-error>
+          </mat-form-field>
+        </div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<mat-form-field appearance="outline">
+						<mat-label> Debe </mat-label>
+						<input
+							appTrim
+							[formControl]="debeField"
+							matInput
+							type="number"
+							formControlName="debe"
+						/>
+						<mat-error *ngIf="debeField.errors">{{ debeField | formErrorHandler }}</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				<div class="form-group">
+					<mat-form-field appearance="outline">
+						<mat-label> Haber </mat-label>
+						<input
+							appTrim
+							[formControl]="haberField"
+							matInput
+							type="number"
+							formControlName="haber"
+						/>
+						<mat-error *ngIf="haberField.errors">{{ haberField | formErrorHandler }}</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+      <div class="col-sm-12">
+				<div class="form-group">
+					<mat-form-field appearance="outline">
+						<mat-label> Centro de costo </mat-label>
+						<mat-select formControlName="centroCostoID">
+							<mat-option [value]="centroCosto.centroCostoID" *ngFor="let centroCosto of listCentroCosto">
+								{{ centroCosto.nombre }}
+							</mat-option>
+						</mat-select>
+						<mat-error *ngIf="centroCostoIDField.errors">
+							{{ centroCostoIDField | formErrorHandler }}
+						</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<br />
+<div class="d-flex flex-row justify-content-end">
+  <button mat-button (click)="onNoClick()">
+		Cancelar
+	</button>
+  <button mat-raised-button class="bg-blue3 txt-white squared-button w-auto" (click)="confirmed()">
+		Guardar
+	</button>
+</div>

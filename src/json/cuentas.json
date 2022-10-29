@@ -1,0 +1,86 @@
+[
+  {
+    "cuentaID": 1,
+    "empresaID": 1,
+    "padreCuentaID": null,
+    "codigo": "1",
+    "nombre": "Activo",
+    "empresa": {
+      "empresaID": 1,
+      "codigo": "1",
+      "nombre": "UMG",
+      "direccion": "Guatemala",
+      "nit": "1234567-6"
+    }
+  },
+  {
+    "cuentaID": 2,
+    "empresaID": 1,
+    "padreCuentaID": null,
+    "codigo": "2",
+    "nombre": "Pasivo",
+    "empresa": {
+      "empresaID": 1,
+      "codigo": "1",
+      "nombre": "UMG",
+      "direccion": "Guatemala",
+      "nit": "1234567-6"
+    }
+  },
+  {
+    "cuentaID": 3,
+    "empresaID": 1,
+    "padreCuentaID": null,
+    "codigo": "3",
+    "nombre": "Capital",
+    "empresa": {
+      "empresaID": 1,
+      "codigo": "1",
+      "nombre": "UMG",
+      "direccion": "Guatemala",
+      "nit": "1234567-6"
+    }
+  },
+  {
+    "cuentaID": 4,
+    "empresaID": 1,
+    "padreCuentaID": 1,
+    "codigo": "1.1",
+    "nombre": "Caja",
+    "empresa": {
+      "empresaID": 1,
+      "codigo": "1",
+      "nombre": "UMG",
+      "direccion": "Guatemala",
+      "nit": "1234567-6"
+    },
+    "padreCuenta": {
+      "cuentaID": 1,
+      "empresaID": 1,
+      "padreCuentaID": null,
+      "codigo": "1",
+      "nombre": "Activo"
+    }
+  },
+  {
+      "cuentaID": 5,
+      "empresaID": 1,
+      "padreCuentaID": 1,
+      "codigo": "1.2",
+      "nombre": "Banco",
+      "empresa": {
+        "empresaID": 1,
+        "codigo": "1",
+        "nombre": "UMG",
+        "direccion": "Guatemala",
+        "nit": "1234567-6"
+      },
+      "padreCuenta": {
+        "cuentaID": 1,
+        "empresaID": 1,
+        "padreCuentaID": null,
+        "codigo": "1",
+        "nombre": "Activo"
+      }
+    }
+  ]

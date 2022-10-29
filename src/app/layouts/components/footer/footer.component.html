@@ -1,0 +1,16 @@
+<footer
+	[ngStyle]="{
+		'background-color': type === 'min' ? 'white' : '#eff3fb'
+	}"
+>
+	<div
+		class="row px-3 justify-content-center"
+		[ngStyle]="{
+			color: type === 'min' ? '#98a6ad' : '#87a3fa'
+		}"
+	>
+		<p class="footer-text">© {{ year }} UMG Grupo #3</p>
+		&nbsp;&nbsp;&#8226;&nbsp;&nbsp;
+		<p class="footer-text">{{ vsn }}</p>
+	</div>
+</footer>

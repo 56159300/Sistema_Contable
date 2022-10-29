@@ -1,0 +1,17 @@
+[
+  {
+    "proveedorID": 1,
+    "codigo": "PV01",
+    "nombre": "Proveedor 1",
+    "direccion": "Guatemala",
+    "nit": "813224-5",
+    "cuentaID": 5,
+    "cuentaContable": {
+      "cuentaID": 5,
+      "empresaID": 1,
+      "padreCuentaID": 1,
+      "codigo": "1.2",
+      "nombre": "Banco"
+    }
+  }
+]

@@ -1,0 +1,16 @@
+<div class="pb-2">
+	<mat-form-field class="searchInput">
+		<mat-label></mat-label>
+		<input
+			#txtSearch
+			appTrim
+			matInput
+			[placeholder]="searchPlaceholder"
+			(keyup)="keyUp($event)"
+		/>
+		<mat-icon matPrefix class="txt-blue2">search</mat-icon>
+		<mat-hint class="txt-blue2" *ngIf="this.dataSource?.filteredData.length === 0">
+      No hay datos disponibles
+    </mat-hint>
+	</mat-form-field>
+</div>

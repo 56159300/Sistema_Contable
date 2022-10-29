@@ -1,0 +1,23 @@
+[
+  {
+    "fecha": "2022-01-01",
+    "codigo": "1",
+    "descripcion": "Activo",
+    "debe": 100,
+    "haber": 0
+  },
+  {
+    "fecha": "2022-01-01",
+    "codigo": "1.1",
+    "descripcion": "Caja",
+    "debe": 15,
+    "haber": 0
+  },
+  {
+    "fecha": "2022-01-01",
+    "codigo": "2",
+    "descripcion": "Pasivo",
+    "debe": 0,
+    "haber": 115
+  }
+]

@@ -1,0 +1,18 @@
+<div class="warning justify-content-center">
+	<img src="assets/svgs/icon_warning.svg" loading="lazy" />
+</div>
+<br />
+<div class="row-cols-1 text-center">
+	<p class="title multiline">{{ data.message }}</p>
+</div>
+<br />
+<div class="row-cols-2 text-center">
+	<button mat-raised-button class="bg-blue3 txt-white squared-button w-auto" (click)="confirmed()">
+		{{ data.submit }}
+	</button>
+</div>
+<div class="row-cols-2 text-center">
+	<button mat-button (click)="onNoClick()">
+		{{ data.cancel }}
+	</button>
+</div>

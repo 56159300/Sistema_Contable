@@ -1,0 +1,18 @@
+.fixed {
+	position: fixed !important;
+	z-index: 1001 !important;
+}
+
+.nofixed {
+	position: static !important;
+}
+
+::ng-deep .language-dropdown {
+	min-width: 0 !important;
+	max-width: auto !important;
+	width: 64px !important;
+	margin: 0 !important;
+	padding-left: 6px !important;
+	background: none !important;
+	box-shadow: none !important;
+}

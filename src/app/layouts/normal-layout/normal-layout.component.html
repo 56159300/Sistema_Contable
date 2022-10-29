@@ -1,0 +1,51 @@
+
+<app-header [login]="login" [type]="'normal'" (callback)="onScroll($event)"> </app-header>
+ <mat-sidenav-container class="sidenav-container body-content">
+	<mat-sidenav
+		#sidenav
+		class="sidenav pt-4"
+		[fixedInViewport]="false"
+		[attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+		[mode]="(isHandset$ | async) ? 'over' : 'side'"
+		[opened]="(isHandset$ | async) === false"
+	>
+		<div class="side-options">
+			<div>
+				<app-circular-loading [loading]="loading"></app-circular-loading>
+				<div *ngIf="!loading">
+					<div *ngFor="let menu of this.appMenu">
+						<mat-expansion-panel class="menu" [expanded]="true">
+							<mat-expansion-panel-header class="body font-weight-bolder">
+								<mat-panel-title>
+									{{ menu.titulo }}
+								</mat-panel-title>
+							</mat-expansion-panel-header>
+							<a
+								*ngFor="let opcion of menu.opciones"
+								[routerLink]="[opcion.url]"
+								class="col-sm-12 menu-item txt-black3"
+								[routerLinkActive]="['txt-blue3', 'font-weight-bolder']"
+							>
+								{{ opcion.nombre }}
+							</a>
+						</mat-expansion-panel>
+					</div>
+				</div>
+			</div>
+		</div>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<div id="body-content" class="body-content bg-blue0 h-100">
+			<main [@fadeAnimation]="outlet.isActivated ? outlet.activatedRoute : ''"
+      [ngStyle]="{ 'padding-top': navbarFixed ? '71px' : '0px' }">
+				<div
+					class="col-xl-11 col-lg-12 col-md-12 col-sm-12 mx-auto pt-5"
+					style="max-width: 1300px !important"
+				>
+					<router-outlet #outlet="outlet"></router-outlet>
+				</div>
+			</main>
+		</div>
+	</mat-sidenav-content>
+</mat-sidenav-container>
+<app-footer [type]="'normal'"></app-footer>

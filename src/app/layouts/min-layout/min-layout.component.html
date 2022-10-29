@@ -1,0 +1,14 @@
+<app-header [login]="login" [type]="'min'" (callback)="onScroll($event)">
+</app-header>
+<div
+  id="body-content"
+  class="body-content bg-blue0"
+  [ngStyle]="{ 'padding-top': navbarFixed ? '71px' : '0px' }"
+>
+  <main
+    [@fadeAnimationNoPaddings]="outlet.isActivated ? outlet.activatedRoute : ''"
+  >
+    <router-outlet #outlet="outlet"></router-outlet>
+  </main>
+</div>
+<app-footer [type]="'min'"></app-footer>

@@ -1,0 +1,15 @@
+[
+  {
+    "centroCostoID": 1,
+    "empresaID": 1,
+    "nombre": "Centro 1",
+    "responsable": "Juan",
+    "empresa": {
+      "empresaID": 1,
+      "codigo": "1",
+      "nombre": "UMG",
+      "direccion": "Guatemala",
+      "nit": "1234567-6"
+    }
+  }
+]

@@ -1,0 +1,211 @@
+<div class="container-fluid">
+	<div class="d-flex flex-wrap justify-content-between">
+		<div class="d-flex align-items-center txt-blue2 mb-4">
+			<span class="title"> Partidas Contables </span>
+		</div>
+	</div>
+	<app-circular-loading [loading]="loading"></app-circular-loading>
+	<div class="row" [hidden]="loading">
+		<div class="col-sm-12">
+			<form [formGroup]="form" form="form">
+				<mat-card>
+					<mat-card-header>
+						<mat-card-title>
+							<div class="d-flex align-items-center txt-blue2 mb-4">
+								<span class="subtitle">
+									{{ baseKey === 'nuevo' ? 'Nueva Partida' : 'Editar Partida' }}
+								</span>
+							</div>
+						</mat-card-title>
+					</mat-card-header>
+					<mat-card-content>
+						<div class="d-flex flex-row align-items-center mb-4">
+							<span class="tag"> Datos generales </span>
+							<div class="ml-auto">
+								<a mat-button [routerLink]="['/workspace/catalogos/proveedores']" class="w-auto">
+									Cancelar
+								</a>
+								<button
+									mat-raised-button
+									type="submit"
+									class="bg-blue3 txt-white squared-button w-auto"
+                  (click)="create($event)"
+								>
+									Guardar
+								</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-5">
+								<div class="form-group">
+									<mat-form-field appearance="outline">
+										<mat-label> Empresa </mat-label>
+										<mat-select formControlName="empresaID" required>
+											<mat-option [value]="empresa.empresaID" *ngFor="let empresa of listEmpresas">
+												{{ empresa.nombre }}
+											</mat-option>
+										</mat-select>
+										<mat-error *ngIf="empresaIDField.errors">
+											{{ empresaIDField | formErrorHandler }}
+										</mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="form-group">
+									<mat-form-field appearance="outline">
+										<mat-label>Fecha documento</mat-label>
+										<input
+											matInput
+											[matDatepicker]="picker"
+											formControlName="fechaDocumento"
+											required
+										/>
+										<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+										<mat-datepicker #picker></mat-datepicker>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="form-group">
+									<mat-form-field appearance="outline">
+										<mat-label> Moneda </mat-label>
+										<mat-select formControlName="moneda" required>
+											<mat-option [value]="moneda" *ngFor="let moneda of listMonedas">
+												{{ moneda }}
+											</mat-option>
+										</mat-select>
+										<mat-error *ngIf="empresaIDField.errors">
+											{{ empresaIDField | formErrorHandler }}
+										</mat-error>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="col-sm-9">
+								<div class="form-group">
+									<mat-form-field appearance="outline">
+										<mat-label> Texto </mat-label>
+										<input
+											appTrim
+											[formControl]="textoField"
+											matInput
+											type="text"
+											formControlName="texto"
+											minlength="1"
+											maxlength="20"
+										/>
+										<mat-error *ngIf="textoField.errors">{{
+											textoField | formErrorHandler
+										}}</mat-error>
+										<mat-hint align="end">{{ textoField.value?.length }} / 20</mat-hint>
+									</mat-form-field>
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="form-group">
+									<mat-form-field appearance="outline" style="pointer-events: none">
+										<mat-label> Total </mat-label>
+										<input
+											[formControl]="totalField"
+											matInput
+											type="text"
+											formControlName="total"
+											[value]="getTotalMonto()"
+										/>
+									</mat-form-field>
+								</div>
+							</div>
+						</div>
+					</mat-card-content>
+					<mat-card-content>
+						<div class="mb-3">
+							<span class="tag mr-2"> Detalle partida </span>
+							<button
+								mat-mini-fab
+								style="background-color: mediumseagreen"
+								(click)="agregarDetalle()"
+							>
+								<mat-icon>add</mat-icon>
+							</button>
+						</div>
+						<div>
+							<div class="table-container">
+								<table
+									mat-table
+									[dataSource]="dataSource"
+									class="table-responsive-sm table-hover"
+									matSort
+									matSortActive="key"
+									matSortDirection="asc"
+									appTableQuery
+								>
+									<ng-container matColumnDef="cuenta">
+										<th mat-header-cell *matHeaderCellDef mat-sort-header>Cuenta Contable</th>
+										<td mat-cell *matCellDef="let element">
+											{{ element.cuenta.codigo }}. {{ element.cuenta.nombre }}
+										</td>
+										<td mat-footer-cell *matFooterCellDef class="font-weight-bolder">Total</td>
+									</ng-container>
+									<ng-container matColumnDef="centroCosto">
+										<th mat-header-cell *matHeaderCellDef mat-sort-header>Centro de costo</th>
+										<td mat-cell *matCellDef="let element">
+											{{ element.centroCosto?.nombre }}
+										</td>
+										<td mat-footer-cell *matFooterCellDef class="font-weight-bolder"></td>
+									</ng-container>
+									<ng-container matColumnDef="monto">
+										<th mat-header-cell *matHeaderCellDef mat-sort-header>Monto</th>
+										<td mat-cell *matCellDef="let element">
+											{{ element.monto | currency: this.monedaField.value }}
+										</td>
+										<td mat-footer-cell *matFooterCellDef class="font-weight-bolder">
+											{{ getTotalMonto() | currency: this.monedaField.value }}
+										</td>
+									</ng-container>
+									<ng-container matColumnDef="debe">
+										<th mat-header-cell *matHeaderCellDef mat-sort-header>Debe</th>
+										<td mat-cell *matCellDef="let element">
+											{{ element.debe | currency: this.monedaField.value }}
+										</td>
+										<td mat-footer-cell *matFooterCellDef class="font-weight-bolder">
+											{{ getTotalDebe() | currency: this.monedaField.value }}
+										</td>
+									</ng-container>
+									<ng-container matColumnDef="haber">
+										<th mat-header-cell *matHeaderCellDef mat-sort-header>Haber</th>
+										<td mat-cell *matCellDef="let element">
+											{{ element.haber | currency: this.monedaField.value }}
+										</td>
+										<td mat-footer-cell *matFooterCellDef class="font-weight-bolder">
+											{{ getTotalHaber() | currency: this.monedaField.value }}
+										</td>
+									</ng-container>
+									<ng-container matColumnDef="actions">
+										<th mat-header-cell *matHeaderCellDef class="text-center">Acciones</th>
+										<td mat-cell *matCellDef="let element" class="text-center">
+											<div class="d-flex justify-content-center">
+												<button mat-icon-button [matMenuTriggerFor]="menu">
+													<mat-icon>more_vert</mat-icon>
+												</button>
+												<mat-menu #menu="matMenu">
+													<mat-divider></mat-divider>
+													<button mat-menu-item class="txt-red3" (click)="delete(element)">
+														Eliminar
+													</button>
+												</mat-menu>
+											</div>
+										</td>
+										<td mat-footer-cell *matFooterCellDef class="font-weight-bolder"></td>
+									</ng-container>
+									<tr mat-header-row *matHeaderRowDef="columns"></tr>
+									<tr mat-row *matRowDef="let row; columns: columns"></tr>
+									<tr mat-footer-row *matFooterRowDef="columns"></tr>
+								</table>
+							</div>
+						</div>
+					</mat-card-content>
+				</mat-card>
+			</form>
+		</div>
+	</div>
+</div>
