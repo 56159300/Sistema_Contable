@@ -6,6 +6,7 @@ import { Empresas } from '@models/empresas';
 import empresasData from '../../../../../json/empresas.json';
 import { CentroCostoService } from '@services/backend/centro-costo.service';
 import { NotificationsService } from '@services/utils/notifications.service';
+import { EmpresasService } from '@services/backend/empresas.service';
 
 @Component({
 	selector: 'app-form',
@@ -26,7 +27,8 @@ export class FormComponent implements OnInit {
 		private formBuilder: UntypedFormBuilder,
 		private activeRoute: ActivatedRoute,
 		private router: Router,
-		private notificationsService: NotificationsService
+		private notificationsService: NotificationsService,
+    private empresasService: EmpresasService
 	) {
 		this.loading = true;
 		this.buildForm();
@@ -42,12 +44,11 @@ export class FormComponent implements OnInit {
 			this.baseKey = 'edit';
 			this.patchForm();
 		}
-
-		this.listEmpresas = empresasData;
 	}
 
-	ngOnInit(): void {
+	async ngOnInit(): Promise<void> {
 		this.loading = false;
+    this.listEmpresas = await this.empresasService.getAll();
 	}
 
 	create(event: Event) {

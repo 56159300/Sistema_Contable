@@ -102,7 +102,7 @@ export class NotificationsService {
 				this.error('Usuario y/o contraseña inválido');
 				break;
 			default:
-				this.error('Hubo un error al realizar el proceso');
+				this.error(response);
 				break;
 		}
 	}

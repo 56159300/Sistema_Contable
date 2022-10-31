@@ -83,7 +83,6 @@ export class FormComponent implements OnInit {
 	create(event: Event) {
 		event.preventDefault();
 		if (!this.canEdit) {
-			console.log('fasdfasdfasdfsd');
 			this.save();
 		} else {
 			this.update();
@@ -102,18 +101,16 @@ export class FormComponent implements OnInit {
 					fechaRegistro: new Date(),
 					moneda: this.monedaField.value,
 					texto: this.textoField.value,
-					total: this.totalField.value,
+					total: this.getTotalMonto(),
 				};
 
 				await this.partidaService
 					.savePartida(data)
 					.then((result) => {
-						console.log(result);
 						Promise.all(
 							this.partidaDetalle.map(async (element) => {
-                console.log(element);
                 const detalle: PartidaDetalle = {
-                  partidaID: 12,
+                  partidaID: result.partidaID,
                   cuentaID: element.cuentaID,
                   centroCostoID: element.centroCostoID,
                   monto: element.monto,
@@ -147,7 +144,7 @@ export class FormComponent implements OnInit {
 				fechaRegistro: new Date(),
 				moneda: this.monedaField.value,
 				texto: this.textoField.value,
-				total: this.totalField.value,
+				total: this.getTotalMonto(),
 			};
 
 			await this.partidaService
@@ -173,7 +170,6 @@ export class FormComponent implements OnInit {
 		});
 		dialogRef.afterClosed().subscribe(async (result) => {
 			if (result) {
-        console.log(value);
         this.dataSource.data = this.partidaDetalle;
 			}
 		});
@@ -185,7 +181,7 @@ export class FormComponent implements OnInit {
 			moneda: [ListadoMonedas.Monedas[0], [Validators.required]],
 			empresaID: ['', [Validators.required]],
 			texto: ['', [Validators.required]],
-			total: [0],
+			total: [0, [Validators.required]],
 		});
 	}
 
@@ -208,7 +204,6 @@ export class FormComponent implements OnInit {
 		});
 		dialogRef.afterClosed().subscribe(async (result) => {
 			if (result) {
-        console.log(result);
 				this.partidaDetalle.push(result);
 				this.dataSource.data = this.partidaDetalle;
 			}
